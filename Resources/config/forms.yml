@@ -5,17 +5,17 @@ services:
         class: Courtyard\Forum\Bundle\ForumBundle\Form\Type\Topic\NewTopicType
         tags:
             - { name: form.type, alias: forum_topic }
-            
+
     courtyard_forum.form.type.post_first:
         class: Courtyard\Forum\Bundle\ForumBundle\Form\Type\Post\FirstPostType
         tags:
             - { name: form.type, alias: forum_post_first }
-            
+
     courtyard_forum.form.type.reply:
         class: Courtyard\Forum\Bundle\ForumBundle\Form\Type\Post\ReplyType
         tags:
             - { name: form.type, alias: forum_reply }
-    
+
     courtyard_forum.form.type.reply_inline:
         class: Courtyard\Forum\Bundle\ForumBundle\Form\Type\Post\ReplyInlineType
         tags:

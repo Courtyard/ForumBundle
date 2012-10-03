@@ -18,7 +18,7 @@ class BoardsController extends PublicController
             'boards' => $this->boardRepository->findAll()
         ));
     }
-    
+
     /**
      * View a specific Board, and list all Topics
      * 

@@ -10,24 +10,24 @@ use Symfony\Component\Security\Core\SecurityContextInterface;
 class SetAuthor implements EventSubscriberInterface
 {
     protected $context;
-    
+
     public function __construct(SecurityContextInterface $context)
     {
         $this->context = $context;
     }
-    
+
     public function onPrePost(PostEvent $event)
     {
         $post = $event->getPost();
         $post->setAuthor($this->context->getToken()->getUser());
     }
-    
+
     public function onPreTopic(TopicEvent $event)
     {
         $topic = $event->getTopic();
         $topic->setAuthor($this->context->getToken()->getUser()); 
     }
-    
+
     static public function getSubscribedEvents()
     {
         return array(

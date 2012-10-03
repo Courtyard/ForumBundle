@@ -18,7 +18,7 @@ class TopicRepository extends EntityRepository
             ORDER
                BY topic.datePosted DESC
         ';
-        
+
         return $this->getEntityManager()->createQuery($query)
             ->setParameter('board', $board->getId())
             ->getResult()

@@ -21,10 +21,10 @@ forum_post_view:
 forum_reply:
     pattern: /posts/reply/{id}
     defaults: { _controller: courtyard_forum.controller.post:replyAction }
-     
+
 forum_reply_inline:
     pattern: /posts/reply-inline/{id}
     defaults: { _controller: courtyard_forum.controller.post:replyInlineAction }
-    
+
 #forum_post_reply:
 #forum_post_edit:

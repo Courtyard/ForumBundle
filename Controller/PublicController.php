@@ -2,7 +2,6 @@
 
 namespace Courtyard\Forum\Bundle\ForumBundle\Controller;
 
-
 use Courtyard\Forum\Manager\ObjectManagerInterface;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Component\HttpFoundation\Request;
@@ -20,11 +19,11 @@ class PublicController
     protected $container;
     protected $templating;
     protected $formFactory;
-    
+
     protected $topicRepository;
     protected $postRepository;
     protected $boardRepository;
-    
+
     public function __construct(Request $request, SessionInterface $session, RouterInterface $router, ContainerInterface $container, EngineInterface $templating, FormFactoryInterface $formFactory)
     {
         $this->request = $request;
@@ -34,22 +33,22 @@ class PublicController
         $this->templating = $templating;
         $this->formFactory = $formFactory;
     }
-    
+
     public function setObjectManager(ObjectManagerInterface $manager)
     {
         $this->manager = $manager;
     }
-    
+
     public function setTopicRepository(EntityRepository $repository)
     {
         $this->topicRepository = $repository;
     }
-    
+
     public function setPostRepository(EntityRepository $repository)
     {
         $this->postRepository = $repository;
     }
-    
+
     public function setBoardRepository(EntityRepository $repository)
     {
         $this->boardRepository = $repository;

@@ -13,12 +13,11 @@ services:
     courtyard_forum.repository.board:
         parent: courtyard_forum.repository
         arguments: [%courtyard_forum.entity_class.board%]
-    
+
     courtyard_forum.repository.topic:
         parent: courtyard_forum.repository
         arguments: [%courtyard_forum.entity_class.topic%]
-  
+
     courtyard_forum.repository.post:
         parent: courtyard_forum.repository
         arguments: [%courtyard_forum.entity_class.post%]
-        

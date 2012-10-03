@@ -10,11 +10,11 @@ services:
     courtyard_forum.manager.topic:
         parent: courtyard_forum.manager
         class: Courtyard\Forum\Manager\TopicManager
-        
+
     courtyard_forum.manager.post:
         parent: courtyard_forum.manager
         class: Courtyard\Forum\Manager\PostManager
-        
+
     courtyard_forum.listener.timestamps:
         class: Courtyard\Forum\Bundle\ForumBundle\EventListener\SetTimestamps
         tags:

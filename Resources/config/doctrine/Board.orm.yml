@@ -6,7 +6,7 @@ Courtyard\Forum\Bundle\ForumBundle\Entity\Board:
             type: integer
             generator:
                 strategy: AUTO
-                
+
     fields:
         title:
             type: string

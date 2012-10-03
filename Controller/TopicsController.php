@@ -14,7 +14,7 @@ class TopicsController extends PublicController
      * @var    Courtyard\Forum\Manager\ObjectManagerInterface
      */
     protected $manager;
-    
+
     /**
      * List the topics in a Board
      * @param    Courtyard\Forum\Entity\Board
@@ -27,7 +27,7 @@ class TopicsController extends PublicController
             'topics' => $this->topicRepository->findLatestIn($board)
         ));
     }
-    
+
     /**
      * Create a new Topic in Board
      * 
@@ -38,25 +38,25 @@ class TopicsController extends PublicController
     {
         $topic = new Topic();
         $topic->setBoard($board);
-        
+
         $form = $this->formFactory->create('forum_topic', $topic);
 
         if ($this->request->getMethod() == 'POST') {
             $form->bindRequest($this->request);
-        
+
             if ($form->isValid()) {
                 $this->manager->create($topic);
                 $this->session->getFlashBag()->add('success', 'Topic posted successfully.');
                 return new RedirectResponse($this->router->generate('forum_topic_view', array('id' => $topic->getId())));
             }
         }
-        
+
         return $this->templating->renderResponse('CourtyardForumBundle:Topics:post.html.twig', array(
             'board' => $board,
             'form' => $form->createView()
         ));
     }
-    
+
     /**
      * View a Topic
      * 
@@ -68,7 +68,7 @@ class TopicsController extends PublicController
         $reply = new Post();
         $reply->setTopic($topic);
         $form = $this->formFactory->create('forum_reply_inline', $reply);
-        
+
         return $this->templating->renderResponse('CourtyardForumBundle:Topics:view.html.twig', array(
             'topic' => $topic,
             'board' => $topic->getBoard(),
@@ -76,7 +76,7 @@ class TopicsController extends PublicController
             'form'  => $form->createView()
         ));
     }
-    
+
     /**
      * Bring the relevant ObjectManager into scope to save Topics
      * @param    Courtyard\Forum\Manager\ObjectManagerInterface

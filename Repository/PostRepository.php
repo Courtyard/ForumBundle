@@ -18,7 +18,7 @@ class PostRepository extends EntityRepository
             ORDER
                 BY post.datePosted ASC
         ';
-        
+
         return $this->getEntityManager()->createQuery($query)
             ->setParameter('topic', $topic->getId())
             ->getResult()

@@ -26,12 +26,11 @@ services:
         parent: courtyard_forum.controller.public
         scope: request
         calls:
-            - [ setTopicManager, [ @courtyard_forum.manager.topic ]]    
+            - [ setTopicManager, [ @courtyard_forum.manager.topic ]]
 
     courtyard_forum.controller.post:
         class: Courtyard\Forum\Bundle\ForumBundle\Controller\PostsController
         parent: courtyard_forum.controller.public
         scope: request
         calls:
-            - [ setPostManager, [ @courtyard_forum.manager.post ]]    
-            
+            - [ setPostManager, [ @courtyard_forum.manager.post ]]

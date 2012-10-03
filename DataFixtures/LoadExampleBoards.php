@@ -14,14 +14,14 @@ class LoadExampleBoards implements FixtureInterface
             'Main Forum',
             'Secondary Forum'
         );
-        
+
         foreach ($titles as $title) {
             $board = new Board();
             $board->setTitle($title);
-            
+
             $manager->persist($board);
         }
-        
+
         $manager->flush();
     }
 }
