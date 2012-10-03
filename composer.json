@@ -1,0 +1,31 @@
+{
+    "name": "courtyard/forum-bundle",
+    "type": "symfony-bundle",
+    "description": "Courtyard Forum Bundle for Symfony",
+    "keywords": ["forum"],
+    "homepage": "http://www.syndicatetheory.com/",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Adrian Schneider",
+            "email": "adrian@syndicatetheory.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.3.2",
+        "symfony/framework-bundle": "2.1.*",
+        "symfony/security-bundle": "2.1.*"
+        "symfony/yaml": "2.1.*",
+        "symfony/validator": "2.1.*"
+    },
+    "autoload": {
+        "psr-0": { "Courtyard\\Bundle\\ForumBundle": "" }
+    },
+    "target-dir": "Courtyard/Bundle/ForumBundle",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
+}
