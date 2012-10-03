@@ -1,0 +1,36 @@
+Courtyard\Forum\Bundle\ForumBundle\Entity\Post:
+    type: entity
+    table: forum_post
+    repositoryClass: Courtyard\Forum\Bundle\ForumBundle\Repository\PostRepository
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+                
+    fields:
+        number:
+            type: integer
+            
+        title:
+            type: string
+            nullable: true
+            
+        message:
+            type: text
+            
+        datePosted:
+            type: datetime
+            
+        dateUpdated:
+            type: datetime
+            
+        status:
+            type: integer    
+            
+    manyToOne:
+        topic:
+            targetEntity: Courtyard\Forum\Bundle\ForumBundle\Entity\Topic
+            
+        author:
+            targetEntity: Courtyard\Forum\Entity\UserInterface

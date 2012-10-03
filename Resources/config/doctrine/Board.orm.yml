@@ -1,0 +1,12 @@
+Courtyard\Forum\Bundle\ForumBundle\Entity\Board:
+    type: entity
+    table: forum_board
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+                
+    fields:
+        title:
+            type: string

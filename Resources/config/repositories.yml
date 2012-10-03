@@ -1,0 +1,24 @@
+parameters:
+    courtyard_forum.entity_class.board: Courtyard\Forum\Bundle\ForumBundle\Entity\Board
+    courtyard_forum.entity_class.topic: Courtyard\Forum\Bundle\ForumBundle\Entity\Topic
+    courtyard_forum.entity_class.post: Courtyard\Forum\Bundle\ForumBundle\Entity\Post
+
+services:
+    courtyard_forum.repository:
+        class: Doctrine\ORM\EntityRepository
+        factory_service: doctrine.orm.entity_manager
+        factory_method: getRepository
+        arguments: []
+
+    courtyard_forum.repository.board:
+        parent: courtyard_forum.repository
+        arguments: [%courtyard_forum.entity_class.board%]
+    
+    courtyard_forum.repository.topic:
+        parent: courtyard_forum.repository
+        arguments: [%courtyard_forum.entity_class.topic%]
+  
+    courtyard_forum.repository.post:
+        parent: courtyard_forum.repository
+        arguments: [%courtyard_forum.entity_class.post%]
+        

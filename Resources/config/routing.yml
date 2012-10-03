@@ -1,0 +1,30 @@
+forum_index:
+    pattern: /
+    defaults: { _controller: courtyard_forum.controller.board:indexAction }
+
+forum_view:
+    pattern: /forum/{id}
+    defaults: { _controller: courtyard_forum.controller.board:viewAction }
+
+forum_topic_view:
+    pattern: /topics/{id}
+    defaults: { _controller: courtyard_forum.controller.topic:viewAction }
+
+forum_topic_create:
+    pattern: /topics/create/{id}
+    defaults: { _controller: courtyard_forum.controller.topic:postAction }
+
+forum_post_view:
+    pattern: /posts/{id}
+    defaults: { _controller: courtyard_forum.controller.post:viewAction }
+    
+forum_reply:
+    pattern: /posts/reply/{id}
+    defaults: { _controller: courtyard_forum.controller.post:replyAction }
+     
+forum_reply_inline:
+    pattern: /posts/reply-inline/{id}
+    defaults: { _controller: courtyard_forum.controller.post:replyInlineAction }
+    
+#forum_post_reply:
+#forum_post_edit:

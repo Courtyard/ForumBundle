@@ -1,0 +1,37 @@
+parameters:
+
+services:
+    courtyard_forum.controller.public:
+        class: Courtyard\Forum\Bundle\ForumBundle\Controller\PublicController
+        arguments:
+            - @request
+            - @session
+            - @router
+            - @service_container
+            - @templating
+            - @form.factory
+        scope: request
+        calls:
+            - [ setTopicRepository, [ @courtyard_forum.repository.topic ]]
+            - [ setPostRepository, [ @courtyard_forum.repository.post ]]
+            - [ setBoardRepository, [ @courtyard_forum.repository.board ]]
+
+    courtyard_forum.controller.board:
+        class: Courtyard\Forum\Bundle\ForumBundle\Controller\BoardsController
+        parent: courtyard_forum.controller.public
+        scope: request
+
+    courtyard_forum.controller.topic:
+        class: Courtyard\Forum\Bundle\ForumBundle\Controller\TopicsController
+        parent: courtyard_forum.controller.public
+        scope: request
+        calls:
+            - [ setTopicManager, [ @courtyard_forum.manager.topic ]]    
+
+    courtyard_forum.controller.post:
+        class: Courtyard\Forum\Bundle\ForumBundle\Controller\PostsController
+        parent: courtyard_forum.controller.public
+        scope: request
+        calls:
+            - [ setPostManager, [ @courtyard_forum.manager.post ]]    
+            
