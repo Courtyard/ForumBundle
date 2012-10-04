@@ -26,5 +26,9 @@ class CourtyardForumExtension extends Extension
         foreach (array('forms.yml', 'services.yml', 'controllers.yml', 'repositories.yml') as $file) {
             $loader->load($file);
         }
+        
+        foreach (array('board', 'topic', 'post') as $entityName) {
+            $container->setParameter("courtyard_forum.entity_class.$entityName", $config["{$entityName}_class"]);
+        }
     }
 }

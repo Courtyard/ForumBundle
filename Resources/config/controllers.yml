@@ -38,5 +38,9 @@ services:
 
     courtyard_forum.request.parmaconverter.entity:
         class: Courtyard\Bundle\ForumBundle\Request\ParamConverter\EntityConverter
+        arguments:
+            - %courtyard_forum.entity_class.board%
+            - %courtyard_forum.entity_class.topic%
+            - %courtyard_forum.entity_class.post%
         tags:
             - { name: request.param_converter, priority: 1 }

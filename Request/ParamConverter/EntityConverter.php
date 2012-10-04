@@ -10,12 +10,12 @@ class EntityConverter implements ParamConverterInterface
 {
     protected $classes;
     
-    public function __construct(array $classes = array())
+    public function __construct($boardClass, $topicClass, $postClass)
     {
-        $this->classes = $classes ?: array(
-            'Courtyard\Forum\Entity\BoardInterface' => 'Courtyard\Bundle\ForumBundle\Entity\Board',
-            'Courtyard\Forum\Entity\TopicInterface' => 'Courtyard\Bundle\ForumBundle\Entity\Topic',
-            'Courtyard\Forum\Entity\PostInterface' => 'Courtyard\Bundle\ForumBundle\Entity\Post'
+        $this->classes = array(
+            'Courtyard\Forum\Entity\BoardInterface' => $boardClass,
+            'Courtyard\Forum\Entity\TopicInterface' => $topicClass,
+            'Courtyard\Forum\Entity\PostInterface' => $postClass
         );
     }
     
