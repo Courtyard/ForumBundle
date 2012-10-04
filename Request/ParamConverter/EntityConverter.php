@@ -19,11 +19,19 @@ class EntityConverter implements ParamConverterInterface
         );
     }
     
+    /**
+     * Convert our interface hints into DoctrineParamConverter compatible hints
+     * 
+     * {@inheritDoc}
+     */
     public function apply(Request $request, ConfigurationInterface $configuration)
     {
         $configuration->setClass($this->classes[$configuration->getClass()]);
     }
     
+    /**
+     * {@inheritDoc}
+     */
     public function supports(ConfigurationInterface $configuration)
     {
         return isset($this->classes[$configuration->getClass()]);
