@@ -2,8 +2,7 @@
 
 namespace Courtyard\Bundle\ForumBundle\Controller;
 
-use Courtyard\Bundle\ForumBundle\Entity\Board;
-use Courtyard\Bundle\ForumBundle\Entity\Topic;
+use Courtyard\Forum\Entity\BoardInterface;
 
 class BoardsController extends PublicController
 {
@@ -22,10 +21,10 @@ class BoardsController extends PublicController
     /**
      * View a specific Board, and list all Topics
      * 
-     * @param    Courtyard\Forum\Entity\Board
+     * @param    Courtyard\Forum\Entity\BoardInterface
      * @return   Symfony\Component\HttpFoundation\Response
      */
-    public function viewAction(Board $board)
+    public function viewAction(BoardInterface $board)
     {
         return $this->templating->renderResponse('CourtyardForumBundle:Boards:view.html.twig', array(
             'board' => $board,

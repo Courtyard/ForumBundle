@@ -34,3 +34,8 @@ services:
         scope: request
         calls:
             - [ setPostManager, [ @courtyard_forum.manager.post ]]
+
+    courtyard_forum.request.parmaconverter.entity:
+        class: Courtyard\Bundle\ForumBundle\Request\ParamConverter\EntityConverter
+        tags:
+            - { name: request.param_converter, priority: 1 }

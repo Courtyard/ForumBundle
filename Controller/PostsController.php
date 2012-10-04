@@ -2,9 +2,11 @@
 
 namespace Courtyard\Bundle\ForumBundle\Controller;
 
-use Courtyard\Bundle\ForumBundle\Entity\Board;
-use Courtyard\Bundle\ForumBundle\Entity\Post;
+use Courtyard\Forum\Entity\BoardInterface;
+use Courtyard\Forum\Entity\TopicInterface;
+use Courtyard\Forum\Entity\PostInterface;
 use Courtyard\Bundle\ForumBundle\Entity\Topic;
+use Courtyard\Bundle\ForumBundle\Entity\Post; 
 use Courtyard\Manager\ObjectManagerInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
@@ -12,10 +14,10 @@ class PostsController extends PublicController
 {
     /**
      * View a specific post
-     * @param    Post
-     * @return   \Symfony\Component\HttpFoundation\Response
+     * @param    Courtyard\Forum\Entity\PostInterface
+     * @return   Symfony\Component\HttpFoundation\Response
      */
-    public function viewAction(Post $post)
+    public function viewAction(PostInterface $post)
     {
         return $this->templating->renderResponse('CourtyardForumBundle:Topics:list.html.twig', array(
             'board'  => $board = $post->getTopic()->getBoard(),
@@ -25,10 +27,10 @@ class PostsController extends PublicController
 
     /**
      * Reply to a post/topic
-     * @param    Post
-     * @return   \Symfony\Component\HttpFoundation\Response
+     * @param    Courtyard\Forum\Entity\PostInterface
+     * @return   Symfony\Component\HttpFoundation\Response
      */
-    public function replyAction(Post $post)
+    public function replyAction(PostInterface $post)
     {
         $reply = new Post();
         $reply->setParent($post);
@@ -54,10 +56,10 @@ class PostsController extends PublicController
 
     /**
      * Reply to a post/topic
-     * @param    Topic
+     * @param    Courtyard\Forum\Entity\TopicInterface
      * @return   \Symfony\Component\HttpFoundation\Response
      */
-    public function replyInlineAction(Topic $topic)
+    public function replyInlineAction(TopicInterface $topic)
     {
         $reply = new Post();
         $reply->setTopic($topic);
@@ -83,10 +85,10 @@ class PostsController extends PublicController
 
     /**
      * Edit to a specific Post
-     * @param    Post
+     * @param    Courtyard\Forum\Entity\PostInterface
      * @return   \Symfony\Component\HttpFoundation\Response
      */
-    public function editAction(Post $post)
+    public function editAction(PostInterface $post)
     {
         $form = $this->formFactory->create('forum_post_edit', $post);
 
@@ -109,10 +111,10 @@ class PostsController extends PublicController
 
     /**
      * Delete a specific Post
-     * @param    Post
-     * @return   \Symfony\Component\HttpFoundation\Response
+     * @param    Courtyard\Forum\Entity\PostInterface
+     * @return   Symfony\Component\HttpFoundation\Response
      */
-    public function deleteAction(Post $post)
+    public function deleteAction(PostInterface $post)
     {
 
     }

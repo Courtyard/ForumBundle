@@ -2,6 +2,9 @@
 
 namespace Courtyard\Bundle\ForumBundle\Controller;
 
+use Courtyard\Forum\Entity\BoardInterface;
+use Courtyard\Forum\Entity\TopicInterface;
+use Courtyard\Forum\Entity\PostInterface;
 use Courtyard\Bundle\ForumBundle\Entity\Post;
 use Courtyard\Bundle\ForumBundle\Entity\Board;
 use Courtyard\Bundle\ForumBundle\Entity\Topic;
@@ -17,10 +20,10 @@ class TopicsController extends PublicController
 
     /**
      * List the topics in a Board
-     * @param    Courtyard\Forum\Entity\Board
+     * @param    Courtyard\Forum\Entity\BoardInterface
      * @return   Symfony\Component\HttpFoundation\Response
      */
-    public function listAction(Board $board)
+    public function listAction(BoardInterface $board)
     {
         return $this->templating->renderResponse('CourtyardForumBundle:Topics:list.html.twig', array(
             'board' => $board,
@@ -31,10 +34,10 @@ class TopicsController extends PublicController
     /**
      * Create a new Topic in Board
      * 
-     * @param    Courtyard\Forum\Entity\Board
+     * @param    Courtyard\Forum\Entity\BoardInterface
      * @return   Symfony\Component\HttpFoundation\Response
      */
-    public function postAction(Board $board)
+    public function postAction(BoardInterface $board)
     {
         $topic = new Topic();
         $topic->setBoard($board);
@@ -60,10 +63,10 @@ class TopicsController extends PublicController
     /**
      * View a Topic
      * 
-     * @param    Courtyard\Forum\Entity\Topic
+     * @param    Courtyard\Forum\Entity\TopicInterface
      * @return   Symfony\Component\HttpFoundation\Response
      */
-    public function viewAction(Topic $topic)
+    public function viewAction(TopicInterface $topic)
     {
         $reply = new Post();
         $reply->setTopic($topic);
