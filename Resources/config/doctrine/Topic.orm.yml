@@ -1,7 +1,7 @@
-Courtyard\Forum\Bundle\ForumBundle\Entity\Topic:
+Courtyard\Bundle\ForumBundle\Entity\Topic:
     type: entity
     table: forum_topic
-    repositoryClass: Courtyard\Forum\Bundle\ForumBundle\Repository\TopicRepository
+    repositoryClass: Courtyard\Bundle\ForumBundle\Repository\TopicRepository
     id:
         id:
             type: integer
@@ -26,22 +26,22 @@ Courtyard\Forum\Bundle\ForumBundle\Entity\Topic:
 
     manyToOne:
         board:
-            targetEntity: Courtyard\Forum\Bundle\ForumBundle\Entity\Board
+            targetEntity: Courtyard\Bundle\ForumBundle\Entity\Board
 
         author:
             targetEntity: Courtyard\Forum\Entity\UserInterface
 
         postFirst:
-            targetEntity: Courtyard\Forum\Bundle\ForumBundle\Entity\Post
+            targetEntity: Courtyard\Bundle\ForumBundle\Entity\Post
             name: post_first_id
             cascade:
                 - persist
 
         postLast:
-            targetEntity: Courtyard\Forum\Bundle\ForumBundle\Entity\Post
+            targetEntity: Courtyard\Bundle\ForumBundle\Entity\Post
             name: post_last_id
 
     oneToMany:
         posts:
-            targetEntity: Courtyard\Forum\Bundle\ForumBundle\Entity\Post
+            targetEntity: Courtyard\Bundle\ForumBundle\Entity\Post
             mappedBy: topic

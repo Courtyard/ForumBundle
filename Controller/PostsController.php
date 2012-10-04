@@ -1,11 +1,11 @@
 <?php
 
-namespace Courtyard\Forum\Bundle\ForumBundle\Controller;
+namespace Courtyard\Bundle\ForumBundle\Controller;
 
-use Courtyard\Forum\Bundle\ForumBundle\Entity\Board;
-use Courtyard\Forum\Bundle\ForumBundle\Entity\Post;
-use Courtyard\Forum\Bundle\ForumBundle\Entity\Topic;
-use Courtyard\Forum\Manager\ObjectManagerInterface;
+use Courtyard\Bundle\ForumBundle\Entity\Board;
+use Courtyard\Bundle\ForumBundle\Entity\Post;
+use Courtyard\Bundle\ForumBundle\Entity\Topic;
+use Courtyard\Manager\ObjectManagerInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class PostsController extends PublicController

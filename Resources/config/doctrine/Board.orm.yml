@@ -1,4 +1,4 @@
-Courtyard\Forum\Bundle\ForumBundle\Entity\Board:
+Courtyard\Bundle\ForumBundle\Entity\Board:
     type: entity
     table: forum_board
     id:

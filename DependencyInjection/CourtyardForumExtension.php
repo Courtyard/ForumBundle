@@ -1,6 +1,6 @@
 <?php
 
-namespace Courtyard\Forum\Bundle\ForumBundle\DependencyInjection;
+namespace Courtyard\Bundle\ForumBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;

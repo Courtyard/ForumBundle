@@ -1,7 +1,7 @@
-Courtyard\Forum\Bundle\ForumBundle\Entity\Post:
+Courtyard\Bundle\ForumBundle\Entity\Post:
     type: entity
     table: forum_post
-    repositoryClass: Courtyard\Forum\Bundle\ForumBundle\Repository\PostRepository
+    repositoryClass: Courtyard\Bundle\ForumBundle\Repository\PostRepository
     id:
         id:
             type: integer
@@ -30,7 +30,7 @@ Courtyard\Forum\Bundle\ForumBundle\Entity\Post:
 
     manyToOne:
         topic:
-            targetEntity: Courtyard\Forum\Bundle\ForumBundle\Entity\Topic
+            targetEntity: Courtyard\Bundle\ForumBundle\Entity\Topic
 
         author:
             targetEntity: Courtyard\Forum\Entity\UserInterface

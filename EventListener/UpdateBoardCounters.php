@@ -1,6 +1,6 @@
 <?php
 
-namespace Courtyard\Forum\Bundle\ForumBundle\EventListener;
+namespace Courtyard\Bundle\ForumBundle\EventListener;
 
 use Courtyard\Forum\DataRebuild\Board\Statistics;
 use Courtyard\Forum\ForumEvents;

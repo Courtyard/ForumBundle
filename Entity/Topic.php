@@ -1,6 +1,6 @@
 <?php
 
-namespace Courtyard\Forum\Bundle\ForumBundle\Entity;
+namespace Courtyard\Bundle\ForumBundle\Entity;
 
 use Courtyard\Forum\Entity\Topic as BaseTopic;
 

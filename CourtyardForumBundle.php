@@ -1,6 +1,6 @@
 <?php
 
-namespace Courtyard\Forum\Bundle\ForumBundle;
+namespace Courtyard\Bundle\ForumBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Courtyard\Forum\ForumBundle\EventListener;
+namespace Courtyard\Bundle\ForumBundle\EventListener;
 
 use Courtyard\Forum\Event\PostEvent;
 use Courtyard\Forum\Event\TopicEvent;

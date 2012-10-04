@@ -1,7 +1,7 @@
 parameters:
-    courtyard_forum.entity_class.board: Courtyard\Forum\Bundle\ForumBundle\Entity\Board
-    courtyard_forum.entity_class.topic: Courtyard\Forum\Bundle\ForumBundle\Entity\Topic
-    courtyard_forum.entity_class.post: Courtyard\Forum\Bundle\ForumBundle\Entity\Post
+    courtyard_forum.entity_class.board: Courtyard\Bundle\ForumBundle\Entity\Board
+    courtyard_forum.entity_class.topic: Courtyard\Bundle\ForumBundle\Entity\Topic
+    courtyard_forum.entity_class.post: Courtyard\Bundle\ForumBundle\Entity\Post
 
 services:
     courtyard_forum.repository:

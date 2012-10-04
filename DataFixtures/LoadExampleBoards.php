@@ -1,8 +1,8 @@
 <?php
 
-namespace Courtyard\Forum\Bundle\ForumBundle\DataFixtures\ORM;
+namespace Courtyard\Bundle\ForumBundle\DataFixtures\ORM;
 
-use Courtyard\Forum\Bundle\ForumBundle\Entity\Board;
+use Courtyard\Bundle\ForumBundle\Entity\Board;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 

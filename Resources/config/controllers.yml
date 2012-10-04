@@ -2,7 +2,7 @@ parameters:
 
 services:
     courtyard_forum.controller.public:
-        class: Courtyard\Forum\Bundle\ForumBundle\Controller\PublicController
+        class: Courtyard\Bundle\ForumBundle\Controller\PublicController
         arguments:
             - @request
             - @session
@@ -17,19 +17,19 @@ services:
             - [ setBoardRepository, [ @courtyard_forum.repository.board ]]
 
     courtyard_forum.controller.board:
-        class: Courtyard\Forum\Bundle\ForumBundle\Controller\BoardsController
+        class: Courtyard\Bundle\ForumBundle\Controller\BoardsController
         parent: courtyard_forum.controller.public
         scope: request
 
     courtyard_forum.controller.topic:
-        class: Courtyard\Forum\Bundle\ForumBundle\Controller\TopicsController
+        class: Courtyard\Bundle\ForumBundle\Controller\TopicsController
         parent: courtyard_forum.controller.public
         scope: request
         calls:
             - [ setTopicManager, [ @courtyard_forum.manager.topic ]]
 
     courtyard_forum.controller.post:
-        class: Courtyard\Forum\Bundle\ForumBundle\Controller\PostsController
+        class: Courtyard\Bundle\ForumBundle\Controller\PostsController
         parent: courtyard_forum.controller.public
         scope: request
         calls:

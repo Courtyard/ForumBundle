@@ -1,6 +1,6 @@
 <?php
 
-namespace Courtyard\Forum\Bundle\ForumBundle\Repository;
+namespace Courtyard\Bundle\ForumBundle\Repository;
 
 use Courtyard\Forum\Entity\BoardInterface;
 use Doctrine\ORM\EntityRepository;

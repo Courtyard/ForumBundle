@@ -16,6 +16,6 @@ services:
         class: Courtyard\Forum\Manager\PostManager
 
     courtyard_forum.listener.timestamps:
-        class: Courtyard\Forum\Bundle\ForumBundle\EventListener\SetTimestamps
+        class: Courtyard\Bundle\ForumBundle\EventListener\SetTimestamps
         tags:
             - { name: kernel.event_subscriber }
