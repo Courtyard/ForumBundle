@@ -16,8 +16,14 @@ class TopicsController extends PublicController
     /**
      * @var    Courtyard\Forum\Manager\ObjectManagerInterface
      */
-    protected $manager;
+    protected $topicManager;
 
+    /**
+     * @var    Courtyard\Forum\Manager\ObjectManagerInterface
+     */
+    protected $postManager;
+    
+    
     /**
      * List the topics in a Board
      * @param    Courtyard\Forum\Entity\BoardInterface
@@ -39,16 +45,14 @@ class TopicsController extends PublicController
      */
     public function postAction(BoardInterface $board)
     {
-        $topic = new Topic();
-        $topic->setBoard($board);
-
+        $topic = $this->topicManager->createNew($board);
         $form = $this->formFactory->create('forum_topic', $topic);
 
         if ($this->request->getMethod() == 'POST') {
             $form->bindRequest($this->request);
 
             if ($form->isValid()) {
-                $this->manager->create($topic);
+                $this->topicManager->create($topic);
                 $this->session->getFlashBag()->add('success', 'Topic posted successfully.');
                 return new RedirectResponse($this->router->generate('forum_topic_view', array('id' => $topic->getId())));
             }
@@ -68,9 +72,7 @@ class TopicsController extends PublicController
      */
     public function viewAction(TopicInterface $topic)
     {
-        $reply = new Post();
-        $reply->setTopic($topic);
-        $form = $this->formFactory->create('forum_reply_inline', $reply);
+        $form = $this->formFactory->create('forum_reply_inline', $this->postManager->createNew($topic));
 
         return $this->templating->renderResponse('CourtyardForumBundle:Topics:view.html.twig', array(
             'topic' => $topic,
@@ -81,11 +83,18 @@ class TopicsController extends PublicController
     }
 
     /**
-     * Bring the relevant ObjectManager into scope to save Topics
      * @param    Courtyard\Forum\Manager\ObjectManagerInterface
      */
     public function setTopicManager(ObjectManagerInterface $manager)
     {
-        $this->manager = $manager;
+        $this->topicManager = $manager;
+    }
+    
+    /**
+     * @param    Courtyard\Forum\Manager\ObjectManagerInterface
+     */
+    public function setPostManager(ObjectManagerInterface $manager)
+    {
+        $this->postManager = $manager;
     }
 }

@@ -27,6 +27,7 @@ services:
         scope: request
         calls:
             - [ setTopicManager, [ @courtyard_forum.manager.topic ]]
+            - [ setPostManager, [ @courtyard_forum.manager.post ]]
 
     courtyard_forum.controller.post:
         class: Courtyard\Bundle\ForumBundle\Controller\PostsController

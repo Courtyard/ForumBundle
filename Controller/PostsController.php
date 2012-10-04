@@ -7,7 +7,7 @@ use Courtyard\Forum\Entity\TopicInterface;
 use Courtyard\Forum\Entity\PostInterface;
 use Courtyard\Bundle\ForumBundle\Entity\Topic;
 use Courtyard\Bundle\ForumBundle\Entity\Post; 
-use Courtyard\Manager\ObjectManagerInterface;
+use Courtyard\Forum\Manager\ObjectManagerInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class PostsController extends PublicController
@@ -57,13 +57,11 @@ class PostsController extends PublicController
     /**
      * Reply to a post/topic
      * @param    Courtyard\Forum\Entity\TopicInterface
-     * @return   \Symfony\Component\HttpFoundation\Response
+     * @return   Symfony\Component\HttpFoundation\Response
      */
     public function replyInlineAction(TopicInterface $topic)
     {
-        $reply = new Post();
-        $reply->setTopic($topic);
-
+        $reply = $this->manager->createNew($topic);
         $form = $this->formFactory->create('forum_reply_inline', $reply);
 
         if ($this->request->getMethod() == 'POST') {
@@ -86,7 +84,7 @@ class PostsController extends PublicController
     /**
      * Edit to a specific Post
      * @param    Courtyard\Forum\Entity\PostInterface
-     * @return   \Symfony\Component\HttpFoundation\Response
+     * @return   Symfony\Component\HttpFoundation\Response
      */
     public function editAction(PostInterface $post)
     {

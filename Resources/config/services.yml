@@ -1,4 +1,6 @@
 parameters:
+    courtyard_forum.entity_class.topic: Courtyard\Bundle\ForumBundle\Entity\Topic
+    courtyard_forum.entity_class.post: Courtyard\Bundle\ForumBundle\Entity\Post
 
 services:
     courtyard_forum.manager:
@@ -10,10 +12,14 @@ services:
     courtyard_forum.manager.topic:
         parent: courtyard_forum.manager
         class: Courtyard\Forum\Manager\TopicManager
+        calls:
+            - [ setClass, [ %courtyard_forum.entity_class.topic% ]]
 
     courtyard_forum.manager.post:
         parent: courtyard_forum.manager
         class: Courtyard\Forum\Manager\PostManager
+        calls:
+            - [ setClass, [ %courtyard_forum.entity_class.post% ] ]
 
     courtyard_forum.listener.timestamps:
         class: Courtyard\Bundle\ForumBundle\EventListener\SetTimestamps
