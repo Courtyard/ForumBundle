@@ -4,10 +4,6 @@ namespace Courtyard\Bundle\ForumBundle\Controller;
 
 use Courtyard\Forum\Entity\BoardInterface;
 use Courtyard\Forum\Entity\TopicInterface;
-use Courtyard\Forum\Entity\PostInterface;
-use Courtyard\Bundle\ForumBundle\Entity\Post;
-use Courtyard\Bundle\ForumBundle\Entity\Board;
-use Courtyard\Bundle\ForumBundle\Entity\Topic;
 use Courtyard\Forum\Manager\ObjectManagerInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
