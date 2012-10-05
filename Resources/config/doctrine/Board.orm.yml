@@ -10,3 +10,6 @@ Courtyard\Bundle\ForumBundle\Entity\Board:
     fields:
         title:
             type: string
+            
+        slug:
+            type: string

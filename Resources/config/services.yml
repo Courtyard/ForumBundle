@@ -1,4 +1,5 @@
 parameters:
+    courtyard_forum.router.slug_inflector_class: Courtyard\Forum\Util\Inflector\SlugInflector
 
 services:
     courtyard_forum.manager:
@@ -6,6 +7,12 @@ services:
         arguments:
             - @doctrine.orm.entity_manager
             - @event_dispatcher
+
+    courtyard_forum.manager.board:
+        parent: courtyard_forum.manager
+        class: Courtyard\Forum\Manager\BoardManager
+        calls:
+            - [ setClass, [ %courtyard_forum.entity_class.board% ]]
 
     courtyard_forum.manager.topic:
         parent: courtyard_forum.manager
@@ -24,14 +31,30 @@ services:
         tags:
             - { name: kernel.event_subscriber }
 
+    courtyard_forum.listener.slugify:
+        class: Courtyard\Bundle\ForumBundle\EventListener\SetSlug
+        arguments:
+            - %courtyard_forum.router.slug_inflector_class%
+        tags:
+            - { name: kernel.event_subscriber }
+
     courtyard_forum.router:
         class: Courtyard\Bundle\ForumBundle\Router\ForumUrlGenerator
         arguments:
             - @router
             - %courtyard_forum.pagination.posts_per_page%
             - %courtyard_forum.pagination.topics_per_page%
-            
-    courtyard_forum.twig.extension.router:
+
+
+    courtyard_forum.router.inflector:
+        class: Courtyard\Bundle\ForumBundle\Router\Util\SlugInflector
+
+    courtyard_forum.router.canonical_rediector:
+        class: Courtyard\Bundle\ForumBundle\EventListener\RedirectCanonicalUrls
+        tags:
+            - { name: kernel.event_listener, event: kernel.controller, method: onKernelRequest, priority: -5000 }
+
+    courtyard_forum.router.twig.extension:
         class: Courtyard\Bundle\ForumBundle\Twig\Extension\RoutingExtension
         arguments:
             - @courtyard_forum.router

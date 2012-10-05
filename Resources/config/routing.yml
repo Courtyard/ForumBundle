@@ -3,16 +3,17 @@ forum_index:
     defaults: { _controller: courtyard_forum.controller.board:indexAction }
 
 forum_view:
-    pattern: /forum/{id}
+    pattern: /{slug}
     defaults: { _controller: courtyard_forum.controller.board:viewAction }
 
+forum_topic_create:
+    pattern: /{slug}/create
+    defaults: { _controller: courtyard_forum.controller.topic:postAction }
+
 forum_topic_view:
-    pattern: /topics/{id}
+    pattern: /{board.slug}/{topic.id}
     defaults: { _controller: courtyard_forum.controller.topic:viewAction }
 
-forum_topic_create:
-    pattern: /topics/create/{id}
-    defaults: { _controller: courtyard_forum.controller.topic:postAction }
 
 forum_post_view:
     pattern: /posts/{id}

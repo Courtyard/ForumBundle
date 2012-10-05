@@ -12,6 +12,9 @@ Courtyard\Bundle\ForumBundle\Entity\Topic:
         title:
             type: string
 
+        slug:
+            type: string
+
         datePosted:
             type: datetime
 
