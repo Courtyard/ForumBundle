@@ -54,6 +54,14 @@ services:
         tags:
             - { name: kernel.event_listener, event: kernel.controller, method: onKernelRequest, priority: -5000 }
 
+    courtyard_forum.listener.breadcrumb:
+        class: Courtyard\Bundle\ForumBundle\EventListener\DefineBreadcrumbs
+        arguments:
+            - @white_october_breadcrumbs
+            - @courtyard_forum.router
+        tags:
+            - { name: kernel.event_listener, event: kernel.controller, method: onKernelRequest, priority: -5000 }
+
     courtyard_forum.router.twig.extension:
         class: Courtyard\Bundle\ForumBundle\Twig\Extension\RoutingExtension
         arguments:

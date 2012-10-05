@@ -5,9 +5,11 @@
 	<a href="{{ generateNewTopicUrl(board) }}">Create New Topic</a>
 	
 	<h2>Topics</h2>
-	<ul>
+	<ul class="topics">
 	    {% for topic in topics %}
-	        <li><a href="{{ generateTopicUrl(topic) }}">{{ topic.title }}</a></li>
+	        <li class="topic">
+	           <h3><a href="{{ generateTopicUrl(topic) }}">{{ topic.title }}</a></h3>
+           </li>
 	    {% endfor %}
 	</ul>
 {% endblock forum_content %}

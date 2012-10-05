@@ -1,9 +1,13 @@
 {% extends 'CourtyardForumBundle::Forum.html.twig' %}
 
 {% block forum_content %}
-	<ul>
+    <h1>Forums</h1>
+    
+	<ul class="forums">
 	    {% for board in boards %}
-	        <li><a href="{{ generateBoardUrl(board) }}">{{ board.title }}</a></li>
+	        <li class"forum">
+	           <h2><a href="{{ generateBoardUrl(board) }}">{{ board.title }}</a></h2>
+	           <p>Description...</p>
 	    {% endfor %}
 	</ul>
 {% endblock forum_content %}

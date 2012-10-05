@@ -1,5 +1,51 @@
 {% extends '::base.html.twig' %}
 
+{% block stylesheets %}
+	{{ parent() }}
+	
+	{% block forum_stylesheets %}
+		<style>
+		   body {
+		      width: 80%;
+		      max-width: 1024px;
+		      margin: 20px auto;
+		   }
+		
+		    ul.breadcrumb { 
+		        list-style-type: none;
+		        margin: 0;
+		        padding: 0;
+		    }
+		        ul.breadcrumb li {
+		            display: inline;
+			        margin: 0;
+			        padding: 0;
+		        }
+
+		    ul.forums {
+		        list-style-type: none;
+		        margin: 0;
+		        padding: 0;
+		    }
+		        ul.forums li.forum {
+		        }
+
+		    ul.topics {
+		        list-style-type: none;
+		        margin: 0;
+		        padding: 0;
+		    }
+		        ul.topics li.topic {
+		        }
+		        
+	        textarea {
+	           width: 100%;
+	        }
+		</style>
+	{% endblock forum_stylesheets %}
+{% endblock stylesheets%}
+
 {% block body %}
-    {% block forum_content %}{% endblock forum_content %}
+    {% block forum_crumbs %}{{ wo_render_breadcrumbs() }}{% endblock %}
+    {% block forum_content %}{% endblock %}
 {% endblock body %}
