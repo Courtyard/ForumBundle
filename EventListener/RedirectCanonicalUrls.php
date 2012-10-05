@@ -8,5 +8,6 @@ class RedirectCanonicalUrls
 {
     public function onKernelRequest(FilterControllerEvent $event)
     {
+        #var_dump($event->getRequest()); exit;
     }
 }

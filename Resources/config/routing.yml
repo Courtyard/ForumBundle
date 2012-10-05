@@ -3,15 +3,15 @@ forum_index:
     defaults: { _controller: courtyard_forum.controller.board:indexAction }
 
 forum_view:
-    pattern: /{slug}
+    pattern: /{boardSlug}
     defaults: { _controller: courtyard_forum.controller.board:viewAction }
 
 forum_topic_create:
-    pattern: /{slug}/create
+    pattern: /{boardSlug}/create
     defaults: { _controller: courtyard_forum.controller.topic:postAction }
 
 forum_topic_view:
-    pattern: /{board.slug}/{topic.id}
+    pattern: /{boardSlug}/{topicId}
     defaults: { _controller: courtyard_forum.controller.topic:viewAction }
 
 
@@ -20,11 +20,11 @@ forum_post_view:
     defaults: { _controller: courtyard_forum.controller.post:viewAction }
     
 forum_reply:
-    pattern: /posts/reply/{id}
+    pattern: /{boardSlug}/{topicId}/reply
     defaults: { _controller: courtyard_forum.controller.post:replyAction }
 
 forum_reply_inline:
-    pattern: /posts/reply-inline/{id}
+    pattern: /{boardSlug}/{topicId}/reply-inline
     defaults: { _controller: courtyard_forum.controller.post:replyInlineAction }
 
 #forum_post_reply:

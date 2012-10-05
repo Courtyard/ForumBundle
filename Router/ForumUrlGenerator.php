@@ -23,21 +23,21 @@ class ForumUrlGenerator
     public function generateBoardUrl(BoardInterface $board, $absolute = false)
     {
         return $this->generator->generate('forum_view', array(
-            'slug' => $board->getSlug()
+            'boardSlug' => $board->getSlug()
         ), $absolute);
     }
 
     public function generateNewTopicUrl(BoardInterface $board, $absolute = false)
     {
         return $this->generator->generate('forum_topic_create', array(
-            'slug' => $board->getSlug()
+            'boardSlug' => $board->getSlug()
         ), $absolute);
     }
 
     public function generateTopicUrl(TopicInterface $topic, $absolute = false)
     {
         return $this->generator->generate('forum_topic_view', array(
-            'topic' => $this->generateTopicString($topic),
+            'topicId' => $this->generateTopicString($topic),
             'boardSlug' => $topic->getBoard()->getSlug()
         ), $absolute);
     }
@@ -52,7 +52,8 @@ class ForumUrlGenerator
     public function generateTopicReplyInlineUrl(TopicInterface $topic, $absolute = false)
     {
         return $this->generator->generate('forum_reply_inline', array(
-            'id' => $topic->getId()
+            'topicId' => $this->generateTopicString($topic),
+            'boardSlug' => $topic->getBoard()->getSlug()
         ), $absolute);
     }
 

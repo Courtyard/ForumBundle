@@ -39,6 +39,7 @@ services:
     courtyard_forum.request.parmaconverter.entity:
         class: Courtyard\Bundle\ForumBundle\Request\ParamConverter\EntityConverter
         arguments:
+            - @doctrine.orm.entity_manager
             - %courtyard_forum.entity_class.board%
             - %courtyard_forum.entity_class.topic%
             - %courtyard_forum.entity_class.post%
