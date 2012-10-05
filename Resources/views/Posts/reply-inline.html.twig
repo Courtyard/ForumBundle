@@ -1,5 +1,5 @@
 <h2>Reply</h2>
-<form method="post" action="{{ path('forum_reply_inline', { id: topic.id }) }}">
+<form method="post" action="{{ generateTopicReplyInlineUrl(topic) }}">
     {{ form_widget(form) }}
     <input type="submit" value="Reply">
 </form>

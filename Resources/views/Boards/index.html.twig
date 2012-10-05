@@ -3,7 +3,7 @@
 {% block forum_content %}
 	<ul>
 	    {% for board in boards %}
-	        <li><a href="{{ path('forum_view', { id: board.id }) }}">{{ board.title }}</a></li>
+	        <li><a href="{{ generateBoardUrl(board) }}">{{ board.title }}</a></li>
 	    {% endfor %}
 	</ul>
 {% endblock forum_content %}

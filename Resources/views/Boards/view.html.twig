@@ -2,12 +2,12 @@
 
 {% block forum_content %}
 	<h1>{{ board.title }}</h1>
-	<a href="{{ path('forum_topic_create', { id: board.id }) }}">Create New Topic</a>
+	<a href="{{ generateNewTopicUrl(board) }}">Create New Topic</a>
 	
 	<h2>Topics</h2>
 	<ul>
 	    {% for topic in topics %}
-	        <li><a href="{{ path('forum_topic_view', { id: topic.id }) }}">{{ topic.title }}</a></li>
+	        <li><a href="{{ generateTopicUrl(topic) }}">{{ topic.title }}</a></li>
 	    {% endfor %}
 	</ul>
 {% endblock forum_content %}

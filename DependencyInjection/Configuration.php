@@ -30,6 +30,14 @@ class Configuration implements ConfigurationInterface
                     ->defaultValue('Courtyard\Bundle\ForumBundle\Entity\Post')
                     ->cannotBeEmpty()
                 ->end()
+                ->scalarNode('topics_per_page')
+                    ->defaultValue(25)
+                    ->cannotBeEmpty()
+                ->end()
+                ->scalarNode('posts_per_page')
+                    ->defaultValue(40)
+                    ->cannotBeEmpty()
+                ->end()
             ->end()
         ;
 

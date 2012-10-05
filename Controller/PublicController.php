@@ -3,11 +3,11 @@
 namespace Courtyard\Bundle\ForumBundle\Controller;
 
 use Courtyard\Forum\Manager\ObjectManagerInterface;
+use Courtyard\Bundle\ForumBundle\Router\ForumUrlGenerator;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Form\FormFactoryInterface;
-use Symfony\Component\Routing\RouterInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Templating\EngineInterface;
 
@@ -24,7 +24,7 @@ class PublicController
     protected $postRepository;
     protected $boardRepository;
 
-    public function __construct(Request $request, SessionInterface $session, RouterInterface $router, ContainerInterface $container, EngineInterface $templating, FormFactoryInterface $formFactory)
+    public function __construct(Request $request, SessionInterface $session, ForumUrlGenerator $router, ContainerInterface $container, EngineInterface $templating, FormFactoryInterface $formFactory)
     {
         $this->request = $request;
         $this->session = $session;

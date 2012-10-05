@@ -40,7 +40,7 @@ class PostsController extends PublicController
             if ($form->isValid()) {
                 $this->manager->create($reply);
                 $this->session->addFlash('success', 'Message posted successfully.');
-                return new RedirectResponse($this->router->generateUrl('forum_post_view', array('id' => $reply->getId())));
+                return new RedirectResponse($this->router->generatePostUrl($reply));
             }
         }
 
@@ -67,7 +67,7 @@ class PostsController extends PublicController
             if ($form->isValid()) {
                 $this->manager->create($reply);
                 $this->session->getFlashBag()->add('success', 'Message posted successfully.');
-                return new RedirectResponse($this->router->generate('forum_topic_view', array('id' => $topic->getId())));
+                return new RedirectResponse($this->router->generatePostUrl($reply));
             }
         }
 
@@ -93,7 +93,7 @@ class PostsController extends PublicController
             if ($form->isValid()) {
                 $this->manager->update($post);
                 $this->session->getFlashBag()->add('success', 'Message updated successfully.');
-                return new RedirectResponse($this->router->generateUrl('forum_post_view', array('id' => $reply->getId())));
+                return new RedirectResponse($this->router->generatePostUrl($post));
             }
         }
 

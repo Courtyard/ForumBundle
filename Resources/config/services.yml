@@ -23,3 +23,17 @@ services:
         class: Courtyard\Bundle\ForumBundle\EventListener\SetTimestamps
         tags:
             - { name: kernel.event_subscriber }
+
+    courtyard_forum.router:
+        class: Courtyard\Bundle\ForumBundle\Router\ForumUrlGenerator
+        arguments:
+            - @router
+            - %courtyard_forum.pagination.posts_per_page%
+            - %courtyard_forum.pagination.topics_per_page%
+            
+    courtyard_forum.twig.extension.router:
+        class: Courtyard\Bundle\ForumBundle\Twig\Extension\RoutingExtension
+        arguments:
+            - @courtyard_forum.router
+        tags:
+            - { name: twig.extension }

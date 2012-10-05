@@ -50,7 +50,7 @@ class TopicsController extends PublicController
             if ($form->isValid()) {
                 $this->topicManager->create($topic);
                 $this->session->getFlashBag()->add('success', 'Topic posted successfully.');
-                return new RedirectResponse($this->router->generate('forum_topic_view', array('id' => $topic->getId())));
+                return new RedirectResponse($this->router->generateTopicUrl($topic));
             }
         }
 

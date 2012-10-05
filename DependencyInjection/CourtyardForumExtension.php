@@ -26,9 +26,15 @@ class CourtyardForumExtension extends Extension
         foreach (array('forms.yml', 'services.yml', 'controllers.yml', 'repositories.yml') as $file) {
             $loader->load($file);
         }
-        
+
         foreach (array('board', 'topic', 'post') as $entityName) {
             $container->setParameter("courtyard_forum.entity_class.$entityName", $config["{$entityName}_class"]);
+
+            if ($entityName != 'board') {
+                if (!empty($config[$entityName . 's_per_page'])) {
+                    $container->setParameter("courtyard_forum.pagination.{$entityName}s_per_page", $config["{$entityName}s_per_page"]);
+                }
+            }
         }
     }
 }

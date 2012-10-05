@@ -6,7 +6,7 @@ services:
         arguments:
             - @request
             - @session
-            - @router
+            - @courtyard_forum.router
             - @service_container
             - @templating
             - @form.factory
