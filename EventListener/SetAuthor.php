@@ -2,6 +2,7 @@
 
 namespace Courtyard\Bundle\ForumBundle\EventListener;
 
+use Courtyard\Forum\ForumEvents;
 use Courtyard\Forum\Event\PostEvent;
 use Courtyard\Forum\Event\TopicEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;

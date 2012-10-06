@@ -7,7 +7,7 @@
 	
 	{% block forum_stylesheets %}
 		<style>
-		   body {
+		   div.forum_container {
 		      width: 80%;
 		      max-width: 1024px;
 		      margin: 20px auto;
@@ -48,6 +48,11 @@
 {% endblock stylesheets%}
 
 {% block body %}
+    
+    <header>
+        <h1>Courtyard <small>a forum suite built on Symfony</small></h1>
+    </header>
+    
     {% block forum_crumbs %}{{ wo_render_breadcrumbs() }}{% endblock %}
-    {% block forum_content %}{% endblock %}
+    <div class="forum_container">{% block forum_content %}{% endblock %}</div>
 {% endblock body %}

@@ -12,11 +12,15 @@ class TopicRepository extends EntityRepository
         $query = '
             SELECT topic
                  , author
+                 , postLast
+                 , authorLast
               FROM CourtyardForumBundle:Topic topic
               LEFT JOIN topic.author author
+              LEFT JOIN topic.postLast postLast
+              LEFT JOIN postLast.author authorLast
              WHERE topic.board = :board
             ORDER
-               BY topic.datePosted DESC
+               BY topic.dateUpdated DESC
         ';
 
         return $this->getEntityManager()->createQuery($query)

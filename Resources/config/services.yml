@@ -26,6 +26,13 @@ services:
         calls:
             - [ setClass, [ %courtyard_forum.entity_class.post% ] ]
 
+    courtyard_forum.listener.author:
+        class: Courtyard\Bundle\ForumBundle\EventListener\SetAuthor
+        arguments:
+            - @security.context
+        tags:
+            - { name: kernel.event_subscriber }
+
     courtyard_forum.listener.timestamps:
         class: Courtyard\Bundle\ForumBundle\EventListener\SetTimestamps
         tags:

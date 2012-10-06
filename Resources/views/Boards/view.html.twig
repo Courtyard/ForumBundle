@@ -12,7 +12,12 @@
 	        <li class="topic">
 	           <h3><a href="{{ generateTopicUrl(topic) }}">{{ topic.title }}</a></h3>
 	           Started: {{ topic.datePosted|date('Y-m-d') }}<br>
-	           Last Reply: {{ topic.dateUpdated|date('Y-m-d') }} by [Joe]
+	           Last Reply: {{ topic.dateUpdated|date('Y-m-d') }} by 
+	           {% if topic.postLast.author %}
+	               [<a href="#">{{ topic.postLast.author.username }}</a>]
+	           {% else %}
+	               unknown
+	           {% endif %}
            </li>
 	    {% endfor %}
 	</ul>
