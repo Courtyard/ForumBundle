@@ -15,13 +15,20 @@ class SetTimestamps implements EventSubscriberInterface
         $post = $event->getPost();
         $post->setDatePosted(new \DateTime());
         $post->setDateUpdated(new \DateTime());
+        
+        $topic = $post->getTopic();
+        $topic->setDateUpdated(new \DateTime());
+        $event->addEntityToPersist($topic);
     }
 
     public function onPrePostUpdate(PostEvent $event)
     {
         $post = $event->getPost();
         $post->setDateUpdated(new \DateTime());  
-        $post->getTopic()->setDateUpdated(new \DateTime());
+
+        $topic = $post->getTopic();
+        $topic->setDateUpdated(new \DateTime());
+        $event->addEntityToPersist($topic);
     }
 
     public function onPreTopic(TopicEvent $event)
