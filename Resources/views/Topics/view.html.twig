@@ -1,5 +1,7 @@
 {% extends 'CourtyardForumBundle::Forum.html.twig' %}
 
+{% block forum_title %}{{ topic.title }}{% endblock %}
+
 {% block forum_content %}
 	<h1>{{ topic.title }}</h1>
 	{% for post in posts %}

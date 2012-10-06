@@ -2,8 +2,9 @@
 
 namespace Courtyard\Bundle\ForumBundle\EventListener;
 
-use WhiteOctober\BreadcrumbsBundle\Model\Breadcrumbs;
+use Courtyard\Bundle\ForumBundle\Controller\TopicsController;
 use Courtyard\Bundle\ForumBundle\Router\ForumUrlGenerator;
+use WhiteOctober\BreadcrumbsBundle\Model\Breadcrumbs;
 use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
 
 class DefineBreadcrumbs
@@ -20,6 +21,7 @@ class DefineBreadcrumbs
     public function onKernelRequest(FilterControllerEvent $event)
     {
         $request = $event->getRequest();
+        list($controller, $method) = $event->getController();
 
         $this->breadcrumbs->addItem('Home', '/');
 
@@ -36,6 +38,10 @@ class DefineBreadcrumbs
 
         if (isset($topic)) {
             $this->breadcrumbs->addItem($topic->getTitle(), $this->forumGenerator->generateTopicUrl($topic));
+        }
+        
+        if ($controller instanceof TopicsController and $method == 'postAction') {
+            $this->breadcrumbs->addItem('Post New Topic', $this->forumGenerator->generateNewTopicUrl($board));
         }
     }
 }

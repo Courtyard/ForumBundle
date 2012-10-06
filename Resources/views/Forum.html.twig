@@ -1,5 +1,7 @@
 {% extends '::base.html.twig' %}
 
+{% block title %}{% block forum_title %}Forums{% endblock %}{% endblock %}
+
 {% block stylesheets %}
 	{{ parent() }}
 	

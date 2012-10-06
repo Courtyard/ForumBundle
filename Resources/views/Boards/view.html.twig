@@ -1,5 +1,7 @@
 {% extends 'CourtyardForumBundle::Forum.html.twig' %}
 
+{% block forum_title %}{{ board.title }}{% endblock %}
+
 {% block forum_content %}
 	<h1>{{ board.title }}</h1>
 	<a href="{{ generateNewTopicUrl(board) }}">Create New Topic</a>
