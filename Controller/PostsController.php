@@ -38,7 +38,7 @@ class PostsController extends PublicController
             $form->bindRequest($this->request);
 
             if ($form->isValid()) {
-                $this->manager->create($reply);
+                $this->manager->persist($reply);
                 $this->session->addFlash('success', 'Message posted successfully.');
                 return new RedirectResponse($this->router->generatePostUrl($reply));
             }
@@ -58,14 +58,14 @@ class PostsController extends PublicController
      */
     public function replyInlineAction(TopicInterface $topic)
     {
-        $reply = $this->manager->createNew($topic);
+        $reply = $this->manager->create($topic);
         $form = $this->formFactory->create('forum_reply_inline', $reply);
 
         if ($this->request->getMethod() == 'POST') {
             $form->bindRequest($this->request);
 
             if ($form->isValid()) {
-                $this->manager->create($reply);
+                $this->manager->persist($reply);
                 $this->session->getFlashBag()->add('success', 'Message posted successfully.');
                 return new RedirectResponse($this->router->generatePostUrl($reply));
             }

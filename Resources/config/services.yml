@@ -3,7 +3,7 @@ parameters:
 
 services:
     courtyard_forum.manager:
-        class: Courtyard\Forum\Manager\AbstractManager
+        class: Courtyard\Forum\Manager\TransactionalManager
         arguments:
             - @doctrine.orm.entity_manager
             - @event_dispatcher

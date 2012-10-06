@@ -41,14 +41,14 @@ class TopicsController extends PublicController
      */
     public function postAction(BoardInterface $board)
     {
-        $topic = $this->topicManager->createNew($board);
+        $topic = $this->topicManager->create($board);
         $form = $this->formFactory->create('forum_topic', $topic);
 
         if ($this->request->getMethod() == 'POST') {
             $form->bindRequest($this->request);
 
             if ($form->isValid()) {
-                $this->topicManager->create($topic);
+                $this->topicManager->persist($topic);
                 $this->session->getFlashBag()->add('success', 'Topic posted successfully.');
                 return new RedirectResponse($this->router->generateTopicUrl($topic));
             }
@@ -68,7 +68,7 @@ class TopicsController extends PublicController
      */
     public function viewAction(TopicInterface $topic)
     {
-        $form = $this->formFactory->create('forum_reply_inline', $this->postManager->createNew($topic));
+        $form = $this->formFactory->create('forum_reply_inline', $this->postManager->create($topic));
 
         return $this->templating->renderResponse('CourtyardForumBundle:Topics:view.html.twig', array(
             'topic' => $topic,

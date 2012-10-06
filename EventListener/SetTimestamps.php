@@ -21,6 +21,7 @@ class SetTimestamps implements EventSubscriberInterface
     {
         $post = $event->getPost();
         $post->setDateUpdated(new \DateTime());  
+        $post->getTopic()->setDateUpdated(new \DateTime());
     }
 
     public function onPreTopic(TopicEvent $event)
@@ -33,7 +34,7 @@ class SetTimestamps implements EventSubscriberInterface
     public function onPreTopicUpdate(TopicEvent $event)
     {
         $topic = $event->getTopic();
-        $topic->setDateUpdated(new \DateTime());      
+        $topic->setDateUpdated(new \DateTime());
     }
 
     static public function getSubscribedEvents()
