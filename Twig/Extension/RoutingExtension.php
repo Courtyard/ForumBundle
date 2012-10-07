@@ -5,13 +5,13 @@ namespace Courtyard\Bundle\ForumBundle\Twig\Extension;
 use Courtyard\Forum\Entity\BoardInterface;
 use Courtyard\Forum\Entity\TopicInterface;
 use Courtyard\Forum\Entity\PostInterface;
-use Courtyard\Bundle\ForumBundle\Router\ForumUrlGenerator;
+use Courtyard\Forum\Router\ForumUrlGeneratorInterface;
 
 class RoutingExtension extends \Twig_Extension
 {
     protected $generator;
 
-    public function __construct(ForumUrlGenerator $generator)
+    public function __construct(ForumUrlGeneratorInterface $generator)
     {
         $this->generator = $generator;
     }
@@ -26,7 +26,7 @@ class RoutingExtension extends \Twig_Extension
 
         $out = array();
         foreach (get_class_methods($this->generator) as $method) {
-            if ($method == '__construct') {
+            if (strpos($method, 'generate') !== 0) {
                 continue;
             }
 

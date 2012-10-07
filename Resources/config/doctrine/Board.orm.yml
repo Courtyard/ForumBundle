@@ -1,6 +1,7 @@
 Courtyard\Bundle\ForumBundle\Entity\Board:
     type: entity
     table: forum_board
+    repositoryClass: Courtyard\Bundle\ForumBundle\Repository\BoardRepository
     id:
         id:
             type: integer

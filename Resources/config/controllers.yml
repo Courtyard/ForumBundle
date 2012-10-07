@@ -8,7 +8,6 @@ services:
             - @session
             - @courtyard_forum.router
             - @service_container
-            - @templating
             - @form.factory
         scope: request
         calls:
@@ -17,12 +16,12 @@ services:
             - [ setBoardRepository, [ @courtyard_forum.repository.board ]]
 
     courtyard_forum.controller.board:
-        class: Courtyard\Bundle\ForumBundle\Controller\BoardsController
+        class: Courtyard\Forum\Controller\BoardsController
         parent: courtyard_forum.controller.public
         scope: request
 
     courtyard_forum.controller.topic:
-        class: Courtyard\Bundle\ForumBundle\Controller\TopicsController
+        class: Courtyard\Forum\Controller\TopicsController
         parent: courtyard_forum.controller.public
         scope: request
         calls:
@@ -30,7 +29,7 @@ services:
             - [ setPostManager, [ @courtyard_forum.manager.post ]]
 
     courtyard_forum.controller.post:
-        class: Courtyard\Bundle\ForumBundle\Controller\PostsController
+        class: Courtyard\Forum\Controller\PostsController
         parent: courtyard_forum.controller.public
         scope: request
         calls:

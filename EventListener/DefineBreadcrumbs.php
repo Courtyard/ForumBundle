@@ -2,8 +2,8 @@
 
 namespace Courtyard\Bundle\ForumBundle\EventListener;
 
+use Courtyard\Forum\Router\ForumUrlGeneratorInterface;
 use Courtyard\Bundle\ForumBundle\Controller\TopicsController;
-use Courtyard\Bundle\ForumBundle\Router\ForumUrlGenerator;
 use WhiteOctober\BreadcrumbsBundle\Model\Breadcrumbs;
 use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
 
@@ -12,7 +12,7 @@ class DefineBreadcrumbs
     protected $breadcrumbs;
     protected $forumGenerator;
 
-    public function __construct(Breadcrumbs $breadcrumbs, ForumUrlGenerator $forumGenerator)
+    public function __construct(Breadcrumbs $breadcrumbs, ForumUrlGeneratorInterface $forumGenerator)
     {
         $this->breadcrumbs = $breadcrumbs;
         $this->forumGenerator = $forumGenerator;

@@ -3,9 +3,10 @@
 namespace Courtyard\Bundle\ForumBundle\Repository;
 
 use Courtyard\Forum\Entity\BoardInterface;
+use Courtyard\Forum\Repository\TopicRepositoryInterface;
 use Doctrine\ORM\EntityRepository;
 
-class TopicRepository extends EntityRepository
+class TopicRepository extends EntityRepository implements TopicRepositoryInterface
 {
     public function findByBoard(BoardInterface $board)
     {
