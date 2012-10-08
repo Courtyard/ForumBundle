@@ -24,9 +24,9 @@ class CreateBoardCommand extends ContainerAwareCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $boardManager = $this->getContainer()->get('courtyard_forum.manager.board');
-        $board = $boardManager->createNew();
+        $board = $boardManager->create();
         $board->setTitle($input->getArgument('title'));
-        $boardManager->create($board);
+        $boardManager->persist($board);
     }
 
     protected function interact(InputInterface $input, OutputInterface $output)

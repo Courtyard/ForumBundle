@@ -5,8 +5,14 @@ services:
     courtyard_forum.manager:
         class: Courtyard\Forum\Manager\TransactionalManager
         arguments:
+            - @courtyard_forum.manager.transaction_dispatcher
+
+    courtyard_forum.manager.transaction_dispatcher:
+        class: Courtyard\Forum\Manager\Transaction\TransactionDispatcher
+        arguments:
             - @doctrine.orm.entity_manager
             - @event_dispatcher
+    
 
     courtyard_forum.manager.board:
         parent: courtyard_forum.manager
