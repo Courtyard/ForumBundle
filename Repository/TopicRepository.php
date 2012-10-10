@@ -10,19 +10,13 @@ class TopicRepository extends EntityRepository implements TopicRepositoryInterfa
 {
     public function findByBoard(BoardInterface $board)
     {
-        $query = '
-            SELECT topic
-                 , author
-                 , postLast
-                 , authorLast
-              FROM CourtyardForumBundle:Topic topic
-              LEFT JOIN topic.author author
-              LEFT JOIN topic.postLast postLast
-              LEFT JOIN postLast.author authorLast
-             WHERE topic.board = :board
-            ORDER
-               BY topic.dateUpdated DESC
-        ';
+        $query = $this->createQueryBuilder('topic')
+            ->leftJoin('topic.author', 'author')
+            ->leftJoin('topic.postLast', 'postLast')
+            ->leftJoin('postLast.author', 'authorLast')
+            ->where('topic.board = :board')
+            ->orderBy('topic.dateUpdated', 'DESC')
+        ;
 
         return $this->getEntityManager()->createQuery($query)
             ->setParameter('board', $board->getId())

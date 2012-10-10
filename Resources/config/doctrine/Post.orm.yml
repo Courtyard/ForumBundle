@@ -1,5 +1,5 @@
 Courtyard\Bundle\ForumBundle\Entity\Post:
-    type: entity
+    type: mappedSuperclass
     table: forum_post
     repositoryClass: Courtyard\Bundle\ForumBundle\Repository\PostRepository
     id:
@@ -27,10 +27,3 @@ Courtyard\Bundle\ForumBundle\Entity\Post:
 
         status:
             type: integer
-
-    manyToOne:
-        topic:
-            targetEntity: Courtyard\Bundle\ForumBundle\Entity\Topic
-
-        author:
-            targetEntity: Courtyard\Forum\Entity\UserInterface

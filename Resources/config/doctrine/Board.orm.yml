@@ -1,5 +1,5 @@
 Courtyard\Bundle\ForumBundle\Entity\Board:
-    type: entity
+    type: mappedSuperclass
     table: forum_board
     repositoryClass: Courtyard\Bundle\ForumBundle\Repository\BoardRepository
     id:
@@ -11,6 +11,6 @@ Courtyard\Bundle\ForumBundle\Entity\Board:
     fields:
         title:
             type: string
-            
+
         slug:
             type: string

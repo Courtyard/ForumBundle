@@ -9,15 +9,11 @@ class PostRepository extends EntityRepository
 {
     public function findByTopic(TopicInterface $topic)
     {
-        $query = '
-            SELECT post
-                 , author
-              FROM CourtyardForumBundle:Post post
-              LEFT JOIN post.author author
-             WHERE post.topic = :topic
-            ORDER
-                BY post.datePosted ASC
-        ';
+        $query = $this->createQueryBuilder('post')
+            ->leftJoin('post.author', 'author')
+            ->where('post.topic = :topic')
+            ->orderBy('post.datePosted')
+        ;
 
         return $this->getEntityManager()->createQuery($query)
             ->setParameter('topic', $topic->getId())

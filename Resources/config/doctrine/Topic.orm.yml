@@ -1,5 +1,5 @@
 Courtyard\Bundle\ForumBundle\Entity\Topic:
-    type: entity
+    type: mappedSuperclass
     table: forum_topic
     repositoryClass: Courtyard\Bundle\ForumBundle\Repository\TopicRepository
     id:
@@ -26,25 +26,3 @@ Courtyard\Bundle\ForumBundle\Entity\Topic:
 
         views:
             type: integer
-
-    manyToOne:
-        board:
-            targetEntity: Courtyard\Bundle\ForumBundle\Entity\Board
-
-        author:
-            targetEntity: Courtyard\Forum\Entity\UserInterface
-
-        postFirst:
-            targetEntity: Courtyard\Bundle\ForumBundle\Entity\Post
-            name: post_first_id
-            cascade:
-                - persist
-
-        postLast:
-            targetEntity: Courtyard\Bundle\ForumBundle\Entity\Post
-            name: post_last_id
-
-    oneToMany:
-        posts:
-            targetEntity: Courtyard\Bundle\ForumBundle\Entity\Post
-            mappedBy: topic
