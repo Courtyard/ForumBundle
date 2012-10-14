@@ -14,3 +14,6 @@ Courtyard\Bundle\ForumBundle\Entity\Board:
 
         slug:
             type: string
+
+        description:
+            type: text

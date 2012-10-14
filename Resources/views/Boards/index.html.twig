@@ -2,12 +2,12 @@
 
 {% block forum_content %}
     <h1>Forums</h1>
-    
+
 	<ul class="forums">
 	    {% for board in boards %}
 	        <li class"forum">
 	           <h2><a href="{{ generateBoardUrl(board) }}">{{ board.title }}</a></h2>
-	           <p>Description...</p>
+	           <p>{{ board.description }}</p>
 	    {% endfor %}
 	</ul>
 {% endblock forum_content %}
