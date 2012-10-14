@@ -18,7 +18,11 @@ forum_topic_view:
 forum_post_view:
     pattern: /posts/{id}
     defaults: { _controller: courtyard_forum.controller.post:viewAction }
-    
+
+forum_post_edit:
+    pattern: /posts/edit/{postId}
+    defaults: { _controller: courtyard_forum.controller.post:editAction }
+
 forum_reply:
     pattern: /{boardSlug}/{topicId}/reply
     defaults: { _controller: courtyard_forum.controller.post:replyAction }

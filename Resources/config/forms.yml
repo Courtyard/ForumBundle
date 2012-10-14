@@ -20,3 +20,8 @@ services:
         class: Courtyard\Bundle\ForumBundle\Form\Type\Post\ReplyInlineType
         tags:
             - { name: form.type, alias: forum_reply_inline }
+            
+    courtyard_forum.form.type.post_edit:
+        class: Courtyard\Bundle\ForumBundle\Form\Type\Post\EditPostType
+        tags:
+            - { name: form.type, alias: forum_post_edit }

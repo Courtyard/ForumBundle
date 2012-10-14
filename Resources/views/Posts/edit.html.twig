@@ -1,0 +1,11 @@
+{% extends 'CourtyardForumBundle::Forum.html.twig' %}
+
+{% block forum_title %}Edit Post{% endblock %}
+
+{% block forum_content %}
+    <h1>Edit Post</h1>
+    <form method="post">
+        {{ form_widget(form) }}
+        <input type="submit" value="Update Post">
+    </form>
+{% endblock forum_content %}

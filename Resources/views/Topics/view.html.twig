@@ -10,6 +10,7 @@
 	            <h3>{{ post.title }}</h3>
 	        {% endif %}
 	        <p>{{ post.message }}</p>
+	        <a href="{{ generatePostEditUrl(post) }}">Edit Post</a>
 	        <hr>
 	    </div>
 	{% endfor %}
