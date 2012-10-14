@@ -12,8 +12,10 @@
 	        <p>{{ post.message }}</p>
 
             <a href="{{ generatePostUrl(post) }}">#{{ post.number }}</a>:
-            <a href="{{ generatePostEditUrl(post) }}">Edit Post</a> -
-            <a href="{{ generatePostDeleteUrl(post) }}">Delete Post</a>
+            <a href="{{ generatePostEditUrl(post) }}">Edit Post</a>
+            {% if post.number > 1 %} -
+                <a href="{{ generatePostDeleteUrl(post) }}">Delete Post</a>
+            {% endif %}
 	        <hr>
 	    </div>
 	{% endfor %}
