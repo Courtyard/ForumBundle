@@ -59,6 +59,13 @@ services:
         tags:
             - { name: kernel.event_subscriber }
 
+    courtyard_forum.listener.lastpost:
+        class: Courtyard\Bundle\ForumBundle\EventListener\UpdateLastPost
+        arguments:
+            - @courtyard_forum.repository.post
+        tags:
+            - { name: kernel.event_subscriber }
+
     courtyard_forum.listener.quickreply:
         class: Courtyard\Bundle\ForumBundle\EventListener\AddQuickReply
         arguments:
