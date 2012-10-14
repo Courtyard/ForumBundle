@@ -1,6 +1,6 @@
 # Installation
 
-For a fully working, configured example application, check out [Courtyard/ForumDistrobution](https://github.com/Courtyard/ForumDistrobution).  It's meant to be a sandbox to test the application quickly.
+For a fully working, configured example application, check out [Courtyard/ForumDistribution](https://github.com/Courtyard/ForumDistribution).  It's meant to be a sandbox to test the application quickly.
 
 ## Requirements
 
