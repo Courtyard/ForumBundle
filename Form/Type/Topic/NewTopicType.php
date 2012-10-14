@@ -8,6 +8,13 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class NewTopicType extends AbstractType
 {
+    protected $class;
+
+    public function __construct($class)
+    {
+        $this->class = $class;
+    }
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
@@ -19,7 +26,7 @@ class NewTopicType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Courtyard\Bundle\ForumBundle\Entity\Topic'
+            'data_class' => $this->class
         ));
     }
 

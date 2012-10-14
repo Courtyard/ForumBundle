@@ -3,30 +3,42 @@ parameters:
 services:
     courtyard_forum.form.type.topic_new:
         class: Courtyard\Bundle\ForumBundle\Form\Type\Topic\NewTopicType
+        arguments:
+            - %courtyard_forum.entity_class.topic%
         tags:
             - { name: form.type, alias: forum_topic }
 
     courtyard_forum.form.type.post_first:
         class: Courtyard\Bundle\ForumBundle\Form\Type\Post\FirstPostType
+        arguments:
+            - %courtyard_forum.entity_class.post%
         tags:
             - { name: form.type, alias: forum_post_first }
 
     courtyard_forum.form.type.reply:
         class: Courtyard\Bundle\ForumBundle\Form\Type\Post\ReplyType
+        arguments:
+            - %courtyard_forum.entity_class.post%
         tags:
             - { name: form.type, alias: forum_reply }
 
     courtyard_forum.form.type.reply_inline:
         class: Courtyard\Bundle\ForumBundle\Form\Type\Post\ReplyInlineType
+        arguments:
+            - %courtyard_forum.entity_class.post%
         tags:
             - { name: form.type, alias: forum_reply_inline }
 
     courtyard_forum.form.type.post_edit:
         class: Courtyard\Bundle\ForumBundle\Form\Type\Post\EditPostType
+        arguments:
+            - %courtyard_forum.entity_class.post%
         tags:
             - { name: form.type, alias: forum_post_edit }
 
     courtyard_forum.form.type.post_delete:
         class: Courtyard\Bundle\ForumBundle\Form\Type\Post\DeletePostType
+        arguments:
+            - %courtyard_forum.entity_class.post%
         tags:
             - { name: form.type, alias: forum_post_delete }

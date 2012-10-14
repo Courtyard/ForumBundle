@@ -11,6 +11,7 @@
 	        {% endif %}
 	        <p>{{ post.message }}</p>
 
+            <a href="{{ generatePostUrl(post) }}">#{{ post.number }}</a>:
             <a href="{{ generatePostEditUrl(post) }}">Edit Post</a> -
             <a href="{{ generatePostDeleteUrl(post) }}">Delete Post</a>
 	        <hr>

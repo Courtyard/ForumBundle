@@ -67,6 +67,18 @@ services:
         tags:
             - { name: kernel.event_listener, event: view.topic, method: onTopicView }
 
+    courtyard_forum.rebuild.postnumbers:
+        class: Courtyard\Forum\Manager\DataRebuild\Post\RenumberPosts
+        arguments:
+            - @courtyard_forum.repository.post
+
+    courtyard_forum.listener.rebuild.postnumbers:
+        class: Courtyard\Bundle\ForumBundle\EventListener\RenumberPosts
+        arguments:
+            - @courtyard_forum.rebuild.postnumbers
+        tags:
+            - { name: kernel.event_listener, event: post.delete.post, method: onPostDelete }
+
     courtyard_forum.router:
         class: Courtyard\Forum\Router\ForumUrlGenerator
         arguments:

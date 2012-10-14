@@ -8,6 +8,13 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class FirstPostType extends AbstractType
 {
+    protected $class;
+
+    public function __construct($class)
+    {
+        $this->class = $class;
+    }
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
@@ -18,7 +25,7 @@ class FirstPostType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Courtyard\Bundle\ForumBundle\Entity\Post'
+            'data_class' => $this->class
         ));
     }
 
